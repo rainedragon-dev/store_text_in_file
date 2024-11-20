@@ -13,9 +13,12 @@ Enter sentance 2: Leaves are green.
 Enter sentance 3: Trees are high.
 Sentances have been saved to user_sentances.txt
 
-Txt doc
+Output
+
+```
 Computers are fast.
 -----------
 Leaves are green.
 -----------
 Trees are high.
+```
