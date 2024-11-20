@@ -1,23 +1,35 @@
-def enter_three_sentances():
+def collect_sentences():
+    """
+    Collects three sentences from the user and returns them as a list.
+    """
+    sentences = []
+    for i in range(1, 4):
+        sentence = input(f"Enter sentence {i}: ")
+        sentences.append(sentence)
+    return sentences
 
-    # Takes input form user for three sentances
-    sentence_one = input("Enter sentence 1: ")
-    sentence_two = input("Enter sentence 2: ")
-    sentence_three = input("Enter sentence 3: ")
+
+def save_sentences_to_file(sentences, file_name="user_sentences.txt"):
+    """
+    Saves the provided sentences to a text file with dash lines in between.
+    """
     splitter = "-----------"
+    with open(file_name, 'w') as file:
+        for i, sentence in enumerate(sentences):
+            file.write(sentence + '\n')
+            # Add splitter after each sentence except the last
+            if i < len(sentences) - 1:
+                file.write(splitter + '\n')
+    print(f"Sentences have been saved to {file_name}.")
 
-    # Opens user_sentance.txt file for writing
-    f = open('user_sentances.txt', 'w')
+
+def main():
+    """
+    Main function to handle the process flow.
+    """
+    sentences = collect_sentences()
+    save_sentences_to_file(sentences)
 
 
-    # Writes list to open file
-    with open('user_sentences.txt', 'w') as file:
-        file.write(f"{sentence_one}\n")
-        file.write(f"{splitter}\n")
-        file.write(f"{sentence_two}\n")
-        file.write(f"{splitter}\n")
-        file.write(f"{sentence_three}")
-
-    print("Sentances have been saved to user_sentances.txt.")
-
-enter_three_sentances()
+# Run the program
+main()
